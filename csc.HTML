@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSC Center - Services</title>
+  <style>
+      html {
+  scroll-behavior: smooth;
+}
+      
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f1f1;
+      color: #333;
+    }
+    header {
+      position: relative;
+      height: 400px;
+      color: white;
+      overflow: hidden;
+    }
+      header video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;     /* full width */
+  height: 100%;    /* full height (300px jitna header hai) */
+  object-fit: cover;  /* header ko fill karega */
+  z-index: -1;     /* content ke niche rahega */
+}
+     
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-100%); }
+      40% { transform: translateX(-200%); }
+      60% { transform: translateX(-300%); }
+      80% { transform: translateX(-400%); }
+      100% { transform: translateX(-500%); }
+    }
+    #services {
+      background: linear-gradient(270deg, 
+        #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff
+      );
+      background-size: 1400% 1400%;
+      animation: rainbowBG 30s linear infinite;
+      border-radius: 10px;
+      padding: 25px 15px;
+      text-align: center;
+      margin-top:20px;
+    }
+    @keyframes rainbowBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .logo {
+      position: absolute;
+      top: 20px; left: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #00f2ff, #ff00c8, #ff8c00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 1s ease-in-out infinite alternate;
+    }
+    @keyframes float {
+      from { transform: translateY(0); opacity: 0.9; }
+      to { transform: translateY(-6px); opacity: 1; }
+    }
+    
+    header p {
+     font-family:montserrat;
+      font-size: 1.6rem;
+      margin-top: 180px;
+     margin-left:600px;
+    animation: fadeEffect 4s ease-in-out infinite;
+}
+
+@keyframes fadeEffect {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+   }
+   
+    /* Popup Button */
+    .header-btn {
+  position: absolute;
+  left: 50%;          /* Horizontal center */
+  bottom: 30px;       /* Distance from bottom */
+  transform: translateX(-50%); /* Center align properly */
+  padding: 8px 16px;  /* Button size */
+  background: #ffaa00; /* Background color */
+  color: white;       /* Text color */
+  font-weight: bold;
+  border-radius: 30px;  /* Rounded corners */
+  cursor: pointer;
+  z-index: 3;
+  text-decoration: none;
+}
+.header-btn:hover {
+  background:green; /* Hover color */
+}    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      max-width: 950px;
+      margin: auto;
+    }
+    .service-box {
+      padding: 12px 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .service-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+    }
+    .service-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: white;
+      text-align: center;
+    }
+    .btn-group {
+      display: flex;
+      gap: 6px;
+    }
+    .apply-btn, .call-btn {
+      padding: 5px 10px;
+      background: white;
+      color: #222;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    .apply-btn:hover, .call-btn:hover {
+      background: #222;
+      color: white;
+    }
+    /* Box colors */
+    .box1 { background: linear-gradient(135deg, #00b4d8, #0077b6); }
+    .box2 { background: linear-gradient(135deg, #38b000, #008000); }
+    .box3 { background: linear-gradient(135deg, #ff6f00, #e65100); }
+    .box4 { background: linear-gradient(135deg, #9d4edd, #5a189a); }
+    .box5 { background: linear-gradient(135deg, #d00000, #9d0208); }
+    .box6 { background: linear-gradient(135deg, #ff9f1c, #ff6f00); }
+    .box7 { background: linear-gradient(135deg, #2ec4b6, #007f5f); }
+    .box8 { background: linear-gradient(135deg, #3a0ca3, #7209b7); }
+    .box9 { background: linear-gradient(135deg, #e63946, #d00000); }
+    .box10 { background: linear-gradient(135deg, #06d6a0, #118ab2); }
+    .box11 { background: linear-gradient(135deg, #ff006e, #c1121f); }
+    .box12 { background: linear-gradient(135deg, #480ca8, #560bad); }
+    .box13 { background: linear-gradient(135deg, #023e8a, #0077b6); }
+    .box14 { background: linear-gradient(135deg, #5f0f40, #9a031e); }
+    .box15 { background: linear-gradient(135deg, #3a5a40, #588157); }
+    .box16 { background: linear-gradient(135deg, #8e24aa, #6a1b9a); }
+    .box17 { background: linear-gradient(135deg, #f72585, #b5179e); }
+    .box18 { background: linear-gradient(135deg, #ef476f, #d62828); }
+    .box19 { background: linear-gradient(135deg, #2a9d8f, #264653); }
+    .box20 { background: linear-gradient(135deg, #ff8500, #ff6d00); }
+
+ .team {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(to right, #6dd5ed, #2193b0); /* Stylish BG */
+  color: white; 
+  margin-top:20px;
+}
+#our{
+    color:white;
+   font-family:roboto;
+   }
+
+.team h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  background: white;
+  color: #333;
+  border-radius: 15px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.team-member img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Hover Effect */
+.team-member:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+    /* Popup Form Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top:0; left:0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+  
+    .modal-content {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .modal-content h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #0077b6;
+    }
+    .modal-content input, .modal-content select, .modal-content textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+    }
+    .modal-content button {
+      padding: 8px 15px;
+      background: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .modal-content button:hover {
+      background: #005f87;
+    }
+    .contact-info {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+.contact-info {
+  margin-top: 20px;
+  padding: 20px;
+  background: #ffd6a5; /* Alag background color for contact info */
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.contact-info a {
+  color: #0077b6;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+} 
+ #introduction {
+  padding: 40px 20px;
+  text-align: center;
+  background: #ffcad4; /* Alag background color */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top:15px;
+}
+
+#introduction h2 {
+  font-size: 1.8rem;
+  color: #d00000;
+  margin-bottom: 15px;
+  
+}
+
+#introduction p {
+  font-size: 1rem;
+  color: #333;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+  
+}
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  color: #ffdd59;  /* optional hover color */
+}
+#follow-us {
+  background-color: #0077b6;  /* Section background */
+  margin-top: 10px;           /* Top margin */
+  padding: 30px 0;            /* Height via padding */
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+}
+
+#follow-us p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+}
+
+#follow-us a {
+  color: white;               /* Link color */
+  text-decoration: none;      /* Underline remove */
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#follow-us a:hover {
+  color: #ffdd59;             /* Hover color */
+}
+    
+    
+    
+}
+</style >
+
+                          
+<header>
+    <div>
+      <video autoplay muted loop playsinline class="bg-video">
+      <source src="sun.mp4" type="video/mp4">
+    </div>
+   
+    <div class="logo">❄️Mahun Digital Seva</div>
+   <p>Digital Seva • Easy Access • Trusted Service</p>
+    <a class="header-btn" id="openFormBtn">contact us</a>
+  </header>
+
+</header>
+  <!-- Popup Form -->
+  <div class="modal" id="popupForm">
+    <div class="modal-content">
+      <span class="close-btn" id="closeForm">&times;</span>
+      <h3 style="background-color:green; color:white; display:inline-block; padding:1px 5px; border-radius:4px;" >Apply / Contact Form</h3>
+      <form id="contactForm">
+        <select id="serviceSelect" required>
+          <option value="">Select Service</option>
+          <option value="Aadhaar & PAN">💳 Aadhaar & PAN</option>
+          <option value="Banking">🏦 Banking</option>
+          <option value="Bill Payment">📄 Bill Payment</option>
+          <option value="Govt. Schemes">📑 Govt. Schemes</option>
+          <option value="Insurance">📝 Insurance</option>
+          <option value="Scholarship">🎓 Scholarship</option>
+          <option value="Exam Forms">📚 Exam Forms</option>
+          <option value="Vehicle RC/License">🚘 Vehicle RC/License</option>
+          <option value="Lamination & Print">📠 Lamination & Print</option>
+          <option value="Online Forms">💻 Online Forms</option>
+          <option value="Passport Photos">📷 Passport Photos</option>
+          <option value="Xerox / Scan">🖨️ Xerox / Scan</option>
+          <option value="Property Forms">🏠 Property Forms</option>
+          <option value="PF & Pension">📈 PF & Pension</option>
+          <option value="Electricity Bill">💡 Electricity Bill</option>
+          <option value="Ayushman Card">💊 Ayushman Card</option>
+          <option value="Birth/Death Cert.">📜 Birth/Death Cert.</option>
+          <option value="Mobile Recharge">📶 Mobile Recharge</option>
+          <option value="DTH Recharge">📺 DTH Recharge</option>
+          <option value="Income Certificate">📊 Income Certificate</option>
+          <option value="">other</option>
+          
+        </select>
+        <input type="text" id="custName" placeholder="Your Name" required>
+        <input type="tel" id="custPhone" placeholder="Phone Number" required>
+        <textarea id="extraMsg" placeholder="Type Here"></textarea>
+        <button type="submit" style="whatsapp-btn; background-color: green; padding: 8px 15px; border:none; border-radius:5px;">Send WhatsApp💬</button>
+      </form>
+    </div>
+  </div>
+
+  <section id="services">
+    <h2 id="our">Our Services</h2>
+    <div class="services">
+      <!-- 20 service boxes same as your original code -->
+      <!-- Box 1 -->
+      <div class="service-box box1">
+        <div class="service-title">💳 Aadhaar & PAN</div>
+        <div class="btn-group">
+          <a href="https://wa.me/919992685289?text=I%20want%20to%20apply%20for%20Aadhaar%20%26%20PAN" class="apply-btn">Apply Now</a>
+          <a href="tel:9992685289" class="call-btn">Call Now</a>
+        </div>
+      </div>
+        <div class="service-box box2"><div class="service-title">🏦 Banking</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Banking%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box3"><div class="service-title">📄 Bill Payment</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Bill%20Payment%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box4"><div class="service-title">📑 Govt. Schemes</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Govt%20Scheme%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box5"><div class="service-title">📝 Insurance</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Insurance" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box6"><div class="service-title">🎓 Scholarship</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Scholarship%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box7"><div class="service-title">📚 Exam Forms</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Exam%20Form%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box8"><div class="service-title">🚘 Vehicle RC/License</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Vehicle%20RC%20or%20License%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box9"><div class="service-title">📠 Lamination & Print</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Lamination%20%26%20Print" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box10"><div class="service-title">💻 Online Forms</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Online%20Form%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box11"><div class="service-title">📷 Passport Photos</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Passport%20Photo%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box12"><div class="service-title">🖨️ Xerox / Scan</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Xerox%20or%20Scan%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box13"><div class="service-title">🏠 Property Forms</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Property%20Form%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box14"><div class="service-title">📈 PF & Pension</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20PF%20%26%20Pension%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box15"><div class="service-title">💡 Electricity Bill</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Electricity%20Bill%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box16"><div class="service-title">💊 Ayushman Card</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Ayushman%20Card" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box17"><div class="service-title">📜 Birth/Death Cert.</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Birth%20or%20Death%20Certificate" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box18"><div class="service-title">📶 Mobile Recharge</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Mobile%20Recharge" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box19"><div class="service-title">📺 DTH Recharge</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20DTH%20Recharge" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+      <div class="service-box box20"><div class="service-title">📊 Income Certificate</div><div class="btn-group"><a href="https://wa.me/919992685289?text=I%20want%20Income%20Certificate%20Service" class="apply-btn">Apply Now</a><a href="tel:9992685289" class="call-btn">Call Now</a></div></div>
+    </div>
+  
+      <!-- Add other 19 boxes here exactly same as original -->
+      <!-- For brevity, they are omitted -->
+    </div>
+  </section>
+
+<section class="team">
+  <h2>Meet Our Professionals</h2>
+  <div class="team-container">
+    <div class="team-member">
+      <img src="mahun.jpg" alt="Aakil">
+      <h3>Mahun Khan</h3>
+      <p>Founder</p>
+    </div>
+
+    <div class="team-member">
+      <img src="aakil.jpg" alt="Professional 2">
+      <h3>Aakil Akhil</h3>
+      <p>web desighner</p>
+    </div>
+
+    <div class="team-member">
+      <img src="sa.png" alt="Professional 3">
+      <h3>Sahajat Khan</h3>
+      <p>cashier</p>
+    </div>
+  </div>
+</section>
+<section id="introduction">
+  <h2>Mahun CSC Centre</h2>
+  <p>Welcome to Mahun CSC Centre, your one-stop destination for all digital services including Aadhaar, PAN, Banking, Bill Payments, Government Schemes, and more. We are committed to providing fast, reliable, and trusted solutions to meet your needs efficiently.</p>
+</section>
+   <!-- Address & Contact Info -->
+  <div class="contact-info">
+    <p>📍haryana mewat ferozepur jirka main market (biwan148) 122104</p>
+    <p>📞 Contact: 9992685289</p>
+    <p>✉️ Gmail: <a href="mailto:mahun.cca@gmail.com">mahun.cca@gmail.com</a></p>
+  </div>
+</section>
+<section id="follow-us" style="text-align:center; margin-top:30px;">
+  <p style="font-family:Arial, sans-serif; font-weight:bold; font-size:22px; margin-bottom:15px;">
+    Follow us:
+  </p>
+
+  <!-- Facebook Button -->
+  <a href="https://www.facebook.com/profile.php?id=61559429474476&mibextid=ZbWKwL/" target="_blank" style="
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background-color:#1877F2;
+      color:white;
+      font-family:Arial, sans-serif;
+      font-weight:bold;
+      font-size:20px;
+      text-decoration:none;
+      padding:12px 20px;
+      
+      margin:5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-right:10px;">
+      <path d="M22.675 0h-21.35C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12v-9.294H9.294v-3.622H12V8.412c0-2.676 1.633-4.135 4.018-4.135 1.142 0 2.123.085 2.406.123v2.79l-1.65.001c-1.294 0-1.544.615-1.544 1.518v1.992h3.088l-.402 3.622h-2.686V24h5.263c.73 0 1.324-.593 1.324-1.324V1.325C24 .593 23.407 0 22.675 0z"/>
+    </svg>
+    
+  </a>
+
+  <!-- Instagram Button -->
+  <a href="https://www.instagram.com/aakilakhil6?igsh=c3ViM2JyaDVsZGZx/" target="_blank" style="
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+      color:white;
+      font-family:Arial, sans-serif;
+      font-weight:bold;
+      font-size:20px;
+      text-decoration:none;
+      padding:12px 20px;
+      
+      margin:5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" style="margin-right:10px;">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.413a4.92 4.92 0 011.77 1.15 4.92 4.92 0 011.15 1.77c.173.46.357 1.26.413 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.413 2.43a4.923 4.923 0 01-1.15 1.77 4.923 4.923 0 01-1.77 1.15c-.46.173-1.26.357-2.43.413-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.413a4.923 4.923 0 01-1.77-1.15 4.923 4.923 0 01-1.15-1.77c-.173-.46-.357-1.26-.413-2.43C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.413-2.43a4.92 4.92 0 011.15-1.77 4.92 4.92 0 011.77-1.15c.46-.173 1.26-.357 2.43-.413C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.736 0 8.332.013 7.052.072 5.773.13 4.732.314 3.89.63a6.923 6.923 0 00-2.515 1.64A6.923 6.923 0 00.63 4.785c-.316.842-.5 1.883-.558 3.162C.013 8.332 0 8.736 0 12c0 3.264.013 3.668.072 4.948.058 1.28.242 2.32.558 3.162a6.923 6.923 0 001.64 2.515 6.923 6.923 0 002.515 1.64c.842.316 1.883.5 3.162.558 1.28.058 1.684.072 4.948.072s3.668-.013 4.948-.072c1.28-.058 2.32-.242 3.162-.558a6.923 6.923 0 002.515-1.64 6.923 6.923 0 001.64-2.515c.316-.842.5-1.883.558-3.162.058-1.28.072-1.684.072-4.948s-.013-3.668-.072-4.948c-.058-1.28-.242-2.32-.558-3.162a6.923 6.923 0 00-1.64-2.515 6.923 6.923 0 00-2.515-1.64c-.842-.316-1.883-.5-3.162-.558C15.668.013 15.264 0 12 0z"/>
+      <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z"/>
+      <circle cx="18.406" cy="5.594" r="1.44"/>
+    </svg>
+    
+  </a>
+</section>
+
+<footer style="text-align:center; padding:15px; background:#000000; color:white; margin-top:10px;">
+  <p style="margin:5px 0;">© 2025 Mahun Digital Seva. All rights reserved.</p>
+  <p style="margin:5px 0;">
+    Designed By <span style="color:#FFA500; font-weight:bold;">Mohd Aakil</span>
+  </p>
+</footer>
+  <script>
+    const openBtn = document.getElementById('openFormBtn');
+    const modal = document.getElementById('popupForm');
+    const closeBtn = document.getElementById('closeForm');
+
+    openBtn.addEventListener('click', ()=>{ modal.style.display = 'flex'; });
+    closeBtn.addEventListener('click', ()=>{ modal.style.display = 'none'; });
+    window.addEventListener('click', (e)=>{ if(e.target == modal) modal.style.display='none'; });
+
+    // WhatsApp form submission
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const service = document.getElementById('serviceSelect').value;
+      const name = document.getElementById('custName').value;
+      const phone = document.getElementById('custPhone').value;
+      const msg = document.getElementById('extraMsg').value;
+      const text = `Service: ${service}%0AName: ${name}%0APhone: ${phone}%0AMessage: ${msg}`;
+      const waLink = `https://wa.me/919992685289?text=${text}`;
+      window.open(waLink, '_blank');
+    });
+  </script>
+</body>
+</html>
